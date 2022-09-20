@@ -751,18 +751,20 @@ dex = dex.split("\n")
 
 dex_list = []
 dex_dict = {}
+dex_entries = []
 
-
-
+# splitting the raw data
 for i in dex:
     entry = i.split(",")
     dex_list.append(entry)
 
+# making the dict to access each pokemons data faster in the main program
 for i in range(len(dex_list)):
     entry = dex_list[i]
     index = int(entry[0])
-    if entry[0] not in dex_dict.keys():
+    if entry[0] not in dex_entries:
+        dex_entries.append(entry[0])
         dex_dict[index] = entry[1::]
     else:
         continue
-# print(dex_dict)
+#print(dex_dict)
